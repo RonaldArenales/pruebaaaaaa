@@ -1,1 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Nata ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* FONDO OPTIMIZADO */
+.background {
+    position: fixed;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: fondo 60s infinite;
+    z-index: -2;
+}
+
+/* CAPA OSCURA */
+.overlay-dark {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    z-index: -1;
+}
+
+/* ANIMACIÓN DE FOTOS */
+@keyframes fondo {
+    0%   { background-image: url("fotos/1.jpg"); }
+    10%  { background-image: url("fotos/2.jpg"); }
+    20%  { background-image: url("fotos/3.jpg"); }
+    30%  { background-image: url("fotos/4.jpg"); }
+    40%  { background-image: url("fotos/5.jpg"); }
+    50%  { background-image: url("fotos/6.jpg"); }
+    60%  { background-image: url("fotos/7.jpg"); }
+    70%  { background-image: url("fotos/8.jpg"); }
+    80%  { background-image: url("fotos/9.jpg"); }
+    90%  { background-image: url("fotos/10.jpg"); }
+    100% { background-image: url("fotos/1.jpg"); }
+}
+
+/* CONTENEDOR CENTRAL */
+.overlay {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    background: rgba(255,255,255,0.15);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    color: white;
+    max-width: 350px;
+    backdrop-filter: blur(6px);
+}
+
+button {
+    background: #ffb3c6;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* CORAZONES FLOTANDO */
+.heart {
+    position: fixed;
+    color: pink;
+    font-size: 18px;
+    animation: float 5s linear infinite;
+}
+
+@keyframes float {
+    from { bottom: -10px; opacity: 1; }
+    to { bottom: 100vh; opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- FONDO -->
+<div class="background"></div>
+<div class="overlay-dark"></div>
+
+<!-- CONTENIDO CENTRAL -->
+<div class="overlay">
+    <div class="card" id="card">
+        <h1>Mi princesa 👑</h1>
+        <p>
+            Te elegiría en cien vidas, en cien mundos,<br>
+            en cualquier versión de la realidad,<br>
+            siempre te elegiría.
+        </p>
+        <h2>¿Quieres ser mi San Valentín? 🌹</h2>
+        <button onclick="aceptar()">Sí 💖</button>
+    </div>
+</div>
+
+<!-- MÚSICA -->
+<div id="music" style="display:none;">
+<iframe width="0" height="0"
+src="https://www.youtube.com/embed/7U0JZP0c1nQ?autoplay=1"
+allow="autoplay"></iframe>
+</div>
+
+<script>
+// FUNCION BOTÓN
+function aceptar(){
+    document.getElementById("card").innerHTML = `
+    <h1>💘 Hacerte la vida más bonita 💘</h1>
+    <p>
+    El mejor paisaje que he visto en mi vida<br>
+    son tus ojos, porque ningún paisaje<br>
+    podría tener esa perfección.<br><br>
+    Te amo hoy y te amaré el resto de mi vida.<br>
+    Contigo hoy, mañana y siempre.
+    </p>
+    `;
+    document.getElementById("music").style.display = "block";
+}
+
+// CORAZONES FLOTANDO
+setInterval(()=>{
+    let h = document.createElement("div");
+    h.className = "heart";
+    h.innerHTML = "❤️";
+    h.style.left = Math.random()*100 + "vw";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),5000);
+},250);
+</script>
+
+</body>
+</html>
 
